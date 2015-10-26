@@ -1,0 +1,77 @@
+﻿@model IList<ADH.DevHelperWeb.Models.DbTable>
+@{
+    ViewBag.Title = "Content";
+    Layout = "~/Views/Shared/_NoTitle_Layout.cshtml";
+}
+<style>
+    .div-body {
+        height: 771px;
+    }
+</style>
+<div class="btnbartitle">
+    <div>
+        【@ViewBag.TableName】表结构描述
+    </div>
+</div>
+<div class="div-body">
+    <table id="table1" class="grid" singleselect="true">
+        <thead>
+            <tr>
+                <td style="width: 40px; text-align: center;">
+                    序号
+                </td>
+                <td style="width: 200px;">
+                    字段名
+                </td>
+                <td style="width: 100px; text-align: center;">
+                    数据类型
+                </td>
+                <td style="width: 50px; text-align: center;">
+                    长度
+                </td>
+                <td style="width: 50px; text-align: center;">
+                    允许空
+                </td>
+                <td style="width: 100px; text-align: center;">
+                    默认值
+                </td>
+                <td>
+                    字段说明
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                var i = 0;
+                foreach (var table in Model)
+                {
+                    i++;
+                    <tr>
+                        <td style="width: 40px; text-align: center;">
+                            @i
+                        </td>
+                        <td style="width: 200px;">
+                            @table.列名
+                        </td>
+                        <td style="width: 100px; text-align: center;">
+                            @table.数据类型
+                        </td>
+                        <td style="width: 50px; text-align: center;">
+                            @table.长度
+                        </td>
+                        <td style="width: 50px; text-align: center;">
+                            @table.是否为空
+                        </td>
+                        <td style="width: 100px; text-align: center;">
+                            @table.默认值
+                        </td>
+                        <td>
+                            @table.说明
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

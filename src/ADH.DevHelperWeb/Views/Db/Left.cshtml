@@ -1,0 +1,51 @@
+﻿@model IList<ADH.DevHelperWeb.Models.DbTable>
+@{
+    ViewBag.Title = "Left";
+    Layout = "~/Views/Shared/_NoTitle_Layout.cshtml";
+}
+
+
+<div class="btnbartitle">
+    <div>
+        数据库及数据表
+    </div>
+</div>
+<div class="div-body">
+    <ul class="strTree">
+        <li>
+            <div title="数据库">
+                ShareMall
+            </div>
+            <ul>
+                @if (Model != null)
+                {
+                    foreach (var table in Model)
+                    {
+                        <li>
+                            <div onclick="GetTable('@table.TableName')">
+                                <img src="/Themes/Images/20130502112716785_easyicon_net_16.png" width="16" height="16"/>
+                                @table.TableName
+                            </div>
+                        </li>    
+                      }
+                 }
+
+            </ul>
+        </li>
+    </ul>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            divresize(29);
+            treeAttrCss();
+        });
+        function GetTable(Table) {
+            var path = '/Db/RightContent?TableName=' + Table;
+            window.parent.frames["target_right"].location = path;
+            Loading(true);
+        }
+    </script>
+    
+}

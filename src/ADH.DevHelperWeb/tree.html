@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Res/easyui-1.4.3/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Res/easyui-1.4.3/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/Res/easyui-1.4.3/themes/icon.css" />
+    <title></title>
+</head>
+<body>
+<ul id="tree" class="easyui-tree"
+    data-options="url:'/Doc/Tree?leaf=true',method:'get',animate:true,lines:true">
+</ul>
+</body>
+</html>
+<script>
+    $(function () {
+        var $tree = $('#tree');
+        $tree.tree({
+            onClick: function (node) {//单击
+                if (window.parent.changeDoc && /(.swf)$/.test(node.path))
+                    window.parent.changeDoc(node.path);
+            },
+            onLoadSuccess: function (node, data) {//数据加载成功
+                $tree.tree('collapseAll');
+            }
+        });
+    });
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>

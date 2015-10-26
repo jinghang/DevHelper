@@ -1,0 +1,6 @@
+*.user
+/src/ADH.DevHelperWeb/bin
+/src/ADH.DevHelperWeb/Log
+/src/ADH.DevHelperWeb/obj
+/src/ConsoleTest/bin
+/src/ConsoleTest/obj

@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "文档库";
+}
+
+<div class="row"><ol class="breadcrumb container" style="margin-bottom: 4px;">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">文档库</a></li>
+    <li class="active">文档</li>
+</ol></div>
+
+<div class="row">
+    <div class="col-xs-2" style="padding: 0px;">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+                <a href="#">文档列表</a>
+            </li>
+            <li>
+                <iframe src="/tree.html" scrolling="auto" frameborder="0" scrolling="yes" height="100%" width="100%" style="border: solid 1px #a9a9a9; min-height: 500px;border-radius:3px; "></iframe>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary btn-lg" style="margin-top: 25px;" id="btnUpload">
+                    上传文件
+                </button>
+            </li>
+        </ul>
+        
+    </div>
+    <div class="col-xs-10" style="padding-right: 0">
+        <div id="documentViewer" class="flexpaper_viewer" style="height: 900px"></div>
+    </div>
+</div>
+
+@section modal
+{
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">上传文件</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li class="active">
+                                    <a href="javascript:setRootPath();">根目录</a>
+                                </li>
+                                <li>
+                                    <div id="treeUp"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-9">
+                            <div id="modalErrorMsg" class="alert alert-warning alert-dismissable" role="alert" style="display: none">
+                                <button type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span>错误提示框</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">目录</span>
+                                <input id="txtDir" type="text" readonly="readonly" class="form-control" placeholder="请选择左边目录"
+                                       data-container="body" data-toggle="popover" data-placement="bottom" data-content="请选择左边目录"/>
+                                <span class="input-group-btn">
+                                    <button id="btnAddSubDir" class="btn btn-default" type="button">添加子目录</button>
+                                    <button id="btnDelSubDir" class="btn btn-default" type="button">删除目录</button>
+                                </span>
+                            </div>
+                            <div id="pnlAddSubDir" class="panel panel-default" style="margin-top: 5px;">
+                                <div class="panel-body">
+                                    <div class="col-xs-7">
+                                        <div class="input-group">
+                                            <input id="txtSubDir" type="text" class="form-control" placeholder="请输入子目录"/>
+                                            <span class="input-group-btn">
+                                                <button id="btnAddSubDirDo" class="btn btn-primary" type="button">确定</button>
+                                                <button id="btnAddSubDirCancel" class="btn btn-default" type="button">取消</button>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default" style="margin-top: 10px;">
+                                <div class="panel-body">
+                                    <div id="uploader" class="wu-example">
+                                        <!--用来存放文件信息-->
+                                        <div id="fileList" class="uploader-list"></div>
+                                        <div class="btns">
+                                            <div id="picker" style="width: 90px; height: 45px">选择文件</div>
+                                            <button id="ctlBtn" class="btn btn-default">开始上传</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span style="margin-right: 10px;color:#999393 ">关闭后稍等一会刷新页面即可看到上传的文件</span>
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 10px;">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+@section scripts{
+    <script type="text/javascript" src="/Scripts/fn.js"></script>
+    <script type="text/javascript" src="/Res/Uploader/webuploader.js"></script>
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="/Res/Uploader/webuploader.css"/>
+}
+

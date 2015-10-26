@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 爱电汇开发参考</title>
+    @Styles.Render("~/Content/css")
+  
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("css", required: false)
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("爱店汇开发参考", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            <span class="navbar-brand">爱店汇开发参考</span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style="margin-top: 8px">
+                <li>
+                    <div class="dropdown">
+                        @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            数据库
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>@Html.ActionLink("数据库表说明", "Index", "Db")</li>
+                            <li>@Html.ActionLink("活动表", "Index", "ActivityDb")</li>
+                        </ul>*@
+                        @Html.ActionLink("数据库说明", "Index", "Db", null, new { @class = "btn btn-default dropdown-toggle" })
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown" style="margin-left: 8px;">
+                        @Html.ActionLink("文档库", "Index", "Doc", null, new {@class = "btn btn-default dropdown-toggle"})
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 广西爱店汇 技术部</p>
+    </footer>
+</div>
+@RenderSection("modal", false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/flexpaper")
+@RenderSection("scripts", required: false)
+</body>
+</html>

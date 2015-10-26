@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "数据库";
+}
+<div class="row">
+    <ol class="breadcrumb container" style="margin-bottom: 4px;">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">数据库</a></li>
+        <li class="active">数据库表说明</li>
+    </ol>
+</div>
+
+<div class="row" id="iframeMainContent">
+    <div class="iframeleft col-md-3">
+        <iframe id="target_left" name="target_left" scrolling="auto" frameborder="0" scrolling="yes"
+                src="Db/Left" width="100%" height="100%"></iframe>
+    </div>
+    <div class="iframeContent col-md-9">
+        <iframe id="target_right" name="target_right" scrolling="auto" frameborder="0" scrolling="yes"
+                src="Db/RightContent" width="100%" height="100%"></iframe>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        //$("#target_left").attr("src", "Db/Left");
+        //$("#target_right").attr("src", "Db/Content");
+    </script>
+}
+
+@section css{
+    <style>
+        .iframeleft {
+            padding: 0;
+            height: 800px;
+        }
+        .iframeContent {
+            padding: 0;
+            padding-left: 2px;
+            height: 800px;
+        }
+    </style>
+}
+

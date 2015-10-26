@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "活动数据库";
+}
+
+<ol class="breadcrumb container" style="margin-bottom: 4px;">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">数据库</a></li>
+    <li class="active">活动表</li>
+</ol>
+<div class="row">
+    <div class="col-lg-2">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">活动说明</a></li>
+            <li class=""><a href="#">上传</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-10">
+        <div id="documentViewer" class="flexpaper_viewer" style="height: 900px"></div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $('#documentViewer').FlexPaperViewer(
+            {
+                config: {
+
+                    SWFFile: 'docs/js.swf',
+
+                    Scale: 0.6,
+                    ZoomTransition: 'easeOut',
+                    ZoomTime: 0.5,
+                    ZoomInterval: 0.2,
+                    FitPageOnLoad: false,
+                    FitWidthOnLoad: true,
+                    FullScreenAsMaxWindow: false,
+                    ProgressiveLoading: false,
+                    MinZoomSize: 0.2,
+                    MaxZoomSize: 5,
+                    SearchMatchAll: false,
+                    InitViewMode: 'Portrait',
+                    RenderingOrder: 'flash',
+                    StartAtPage: '',
+
+                    ViewModeToolsVisible: true,
+                    ZoomToolsVisible: true,
+                    NavToolsVisible: true,
+                    CursorToolsVisible: true,
+                    SearchToolsVisible: true,
+                    WMode: 'window',
+                    localeChain: 'en_US'
+                }
+            }
+    );
+    </script>
+}
+
+@section css{
+    <style>
+        
+    </style>
+}
+
+
+
+
